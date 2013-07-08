@@ -13,7 +13,7 @@ define(['app', './controllers/base', './controllers/home'], function(app) {
 
         .state('dashboard', {
           url: '/dashboard',
-          template: '<ui-view ng-animate="{enter: \'animated fadeIn\'}"></ui-view>',
+          template: '<ui-view ng-animate="{enter: \'animated wobble\'}"></ui-view>',
           controller: section + 'controllers.base'
         })
 
