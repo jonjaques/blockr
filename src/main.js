@@ -1,31 +1,58 @@
 requirejs.config({
-	paths: {
-		jquery: 'vendor/jquery/jquery',
-		angular: 'vendor/angular/angular',
-		underscore: 'vendor/underscore',
-		'class': 'vendor/class'
-	},
-	shim: {
-		jquery: {
-			exports: 'jQuery'
-		},
-		underscore: {
-			exports: '_'
-		},
-		angular: {
-			exports: 'angular'
-		},
-		'class': {
-			exports: 'Class'
-		}
-	}
+  paths: {
+    'jquery'            : 'vendor/jquery/jquery'
+    , 'underscore'      : 'vendor/underscore'
+    , 'class'           : 'vendor/class'
+    , 'angular'         : 'vendor/angular/angular'
+      , 'ui.bootstrap'  : 'vendor/angular/angular-ui-bootstrap-tpl'
+      , 'ui.router'     : 'vendor/angular/angular-ui-router'
+  },
+  shim: {
+    'jquery': {
+      exports: 'jQuery'
+    }
+    , 'underscore': {
+      exports: '_'
+    }
+    , 'class': {
+      exports: 'Class'
+    }
+    , 'angular': {
+      exports: 'angular'
+    }
+      , 'ui.bootstrap': {
+        deps: ['angular']
+       }
+      , 'ui.router': {
+        deps: ['angular']
+      }
+  }
 });
 
 require([
-	'angular'
-	, 'app'
-], function(angular, Blockr) {
+  'angular'
+  , 'jquery'
+  , 'app'
+  , 'controllers/main'
 
-    angular.bootstrap(document, ['blockr']);
+  // SERVICES
+  , 'services/logger'
+  , 'services/client'
+
+  // AREAS
+  , 'areas/dashboard/index'
+  , 'areas/wall/index'
+
+
+], function(angular, $, Blockr) {
+
+    var host = $('#applicationHost');
+
+    host.find('.loading-block')
+      .fadeOut(function() {
+        $(this).remove();
+        host.removeClass('loading');
+        angular.bootstrap(host[0], ['blockr']);
+      });
 
 });

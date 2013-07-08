@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="vendor/require.js" data-main="main"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="vendor/require.js" data-main="main"></script>
 </head>
 <body>
 
-	<div id="applicationHost">
-		<div class="loading">Loading...</div>
-	</div>
+    <div id="applicationHost" class="loading">
+        <div id="mainView" ng-controller="blockr.MainController">
+            <div class="container" ui-view>
+                <div class="row loading-block">
+                    <div class="col-12">
+                        <p class="loading-text text-center">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

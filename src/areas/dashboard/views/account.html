@@ -1,0 +1,17 @@
+<div class="col-12">
+    <h2>{{user.name}}</h2>
+    loggedIn: {{user.loggedIn}}<br>
+</div>
+<div class="col-12">
+    <form class="form-horizontal">
+        <legend>Things</legend>
+        <div class="row">
+            <div class="input-group col-12">
+                <input type="text" ng-model="user.name">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" ng-click="toggle()">Toggle Auth</button>
+                </span>
+            </div>
+        </div>
+    </form>
+</div>

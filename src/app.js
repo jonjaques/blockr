@@ -1,10 +1,18 @@
-define(['class', 'angular'], function(Class, angular) {
+define([
+  'angular'
+  , 'ui.bootstrap'
+  , 'ui.router'
+],
 
-	var Application = Class.extend({
+function(angular, ApplicationProvider) {
 
+  var blockrDependencies = [
+    'ui.bootstrap',
+    'ui.state'
+  ];
 
-	});
+  var app = angular.module('blockr', blockrDependencies);
 
-	return angular.module('blockr', Application);
+  return app;
 
 });
